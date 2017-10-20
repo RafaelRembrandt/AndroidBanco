@@ -7,13 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class MeretrizesActivity extends AppCompatActivity {
+public class CinemationActivity extends AppCompatActivity {
 
 
     public void cargaInicial() {
@@ -68,13 +66,13 @@ public class MeretrizesActivity extends AppCompatActivity {
 
         List<Filme> filmes = f.listar();
 
-        ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(MeretrizesActivity.this, android.R.layout.simple_list_item_1, filmes);
+        ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(CinemationActivity.this, android.R.layout.simple_list_item_1, filmes);
         ListView lv = (ListView) findViewById(R.id.listview);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MeretrizesActivity.this, ActivityVisualizarItens.class);
+                Intent intent = new Intent(CinemationActivity.this, ActivityVisualizarItens.class);
                 intent.putExtra("filme", (Serializable) parent.getItemAtPosition(position));
                 startActivity(intent);
             }
